@@ -1,4 +1,4 @@
-package com.ferbajoo.composevsxml.ui.features
+package com.ferbajoo.composevsxml.ui.features.chatXml
 
 import android.os.Bundle
 import androidx.activity.compose.setContent
