@@ -11,7 +11,11 @@ composeBom = "2024.06.00"
 navigationCompose = "2.8.0-beta03"
 kotlinxSerialization = "1.6.3"
 appcompat = "1.7.0"
-koil = "2.0.0-rc01"
+koil = "2.4.0"
+koilXml = "1.4.0"
+constraintlayout = "2.2.0-alpha13"
+material = "1.12.0"
+
 
 [libraries]
 androidx-core-ktx = { group = "androidx.core", name = "core-ktx", version.ref = "coreKtx" }
@@ -32,9 +36,13 @@ androidx-navigation-compose = { group = "androidx.navigation", name = "navigatio
 kotlinx-serialization-json = { group = "org.jetbrains.kotlinx", name = "kotlinx-serialization-json", version.ref = "kotlinxSerialization" }
 androidx-appcompat = { group = "androidx.appcompat", name = "appcompat", version.ref = "appcompat" }
 koil-compose = { group = "io.coil-kt", name = "coil-compose", version.ref = "koil" }
+koil-xml = { group = "io.coil-kt", name = "coil", version.ref = "koilXml" }
+constraintlayout = { group = "androidx.constraintlayout", name = "constraintlayout", version.ref = "constraintlayout" }
+material = { group = "com.google.android.material", name = "material", version.ref = "material" }
 
 [plugins]
 androidApplication = { id = "com.android.application", version.ref = "agp" }
 jetbrainsKotlinAndroid = { id = "org.jetbrains.kotlin.android", version.ref = "kotlin" }
 kotlinxSerialization = { id = "org.jetbrains.kotlin.plugin.serialization", version.ref = "kotlin"}
+
 

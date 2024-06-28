@@ -1,5 +1,6 @@
 package com.ferbajoo.composevsxml.ui.features.chatCompose
 
+import android.content.Intent
 import android.widget.Toast
 import androidx.compose.foundation.Image
 import androidx.compose.foundation.background
@@ -30,6 +31,7 @@ import androidx.compose.material3.NavigationBarItem
 import androidx.compose.material3.NavigationBarItemColors
 import androidx.compose.material3.Scaffold
 import androidx.compose.material3.Text
+import androidx.compose.material3.contentColorFor
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.getValue
 import androidx.compose.runtime.mutableIntStateOf
@@ -40,13 +42,16 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.clip
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.platform.LocalContext
+import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.tooling.preview.datasource.LoremIpsum
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import coil.compose.rememberAsyncImagePainter
+import com.ferbajoo.composevsxml.R
 import com.ferbajoo.composevsxml.ui.features.chatCompose.compose.CustomToolbar
+import com.ferbajoo.composevsxml.ui.features.chatXml.XmlActivity
 import com.ferbajoo.composevsxml.util.getEmojiRandom
 import kotlin.random.Random
 import kotlinx.serialization.Serializable
@@ -56,6 +61,8 @@ object Home
 
 @Composable
 fun HomeScreen() {
+    val context = LocalContext.current
+    context.startActivity(Intent(context, XmlActivity::class.java))
     Scaffold(
         bottomBar = {
             CustomBottomNavigation()
@@ -92,12 +99,15 @@ fun ChatsContent(modifier: Modifier) {
 
 @Composable
 fun CustomFloatingButton() {
+    val context = LocalContext.current
     Box(
         modifier = Modifier
             .size(50.dp)
             .clip(RoundedCornerShape(15.dp))
             .background(Color(0xFF25D366))
-            .clickable { },
+            .clickable {
+                context.startActivity(Intent(context, XmlActivity::class.java))
+            },
         contentAlignment = Alignment.Center,
     ) {
         Icon(Icons.Default.AddCircle, contentDescription = null, tint = Color.White)
@@ -108,15 +118,15 @@ fun CustomFloatingButton() {
 fun HeaderMenu() {
     var indexSelected by remember { mutableIntStateOf(0) }
     Row(modifier = Modifier.padding(horizontal = 10.dp)) {
-        ItemHeaderButton("All", isSelected = indexSelected == 0) {
+        ItemHeaderButton(stringResource(id = R.string.all), isSelected = indexSelected == 0) {
             indexSelected = 0
         }
         Spacer(modifier = Modifier.width(10.dp))
-        ItemHeaderButton("Unread", isSelected = indexSelected == 1) {
+        ItemHeaderButton(stringResource(id = R.string.unread), isSelected = indexSelected == 1) {
             indexSelected = 1
         }
         Spacer(modifier = Modifier.width(10.dp))
-        ItemHeaderButton("Groups", isSelected = indexSelected == 2) {
+        ItemHeaderButton(stringResource(id = R.string.group), isSelected = indexSelected == 2) {
             indexSelected = 2
         }
     }
@@ -174,7 +184,7 @@ fun ChatItem(id: Int, onSelectedItem: () -> Unit) {
                 horizontalArrangement = Arrangement.SpaceBetween
             ) {
                 Text(text = "Nombre $id ${getEmojiRandom()}", fontWeight = FontWeight.Bold)
-                Text(text = "25/Jun/2024")
+                Text(text = "02:${if (id < 10) "0$id" else id} PM", fontSize = 14.sp, fontWeight = FontWeight.Normal, color = Color.Gray)
             }
             Text(
                 text = loremIpsum.joinToString(),

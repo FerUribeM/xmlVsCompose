@@ -4,4 +4,8 @@
     <style name="Theme.ComposeVsXml" parent="android:Theme.Material.Light.NoActionBar" />
 
     <style name="Theme.XmlView" parent="Theme.AppCompat.Light.NoActionBar"/>
+
+    <style name="Toolbar.CustomTheme" parent="TextAppearance.Widget.AppCompat.Toolbar.Title">
+        <item name="android:textSize">24sp</item>
+    </style>
 </resources>

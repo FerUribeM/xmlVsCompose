@@ -35,9 +35,9 @@ fun CustomToolbar() {
         title = {
             Text(
                 text = "WhatsApp",
-                fontSize = 34.sp,
+                fontSize = 24.sp,
                 fontWeight = FontWeight.Bold,
-                color = Color(0xFF128C7E)
+                color = Color(0xFF25D366)
             )
         },
         actions = {
