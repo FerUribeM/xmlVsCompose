@@ -1,19 +1,32 @@
 package com.ferbajoo.composevsxml.ui.navigation
 
 import androidx.compose.runtime.Composable
+import androidx.compose.ui.Modifier
+import androidx.navigation.NavHostController
 import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.composable
-import androidx.navigation.compose.rememberNavController
-import com.ferbajoo.composevsxml.ui.features.chatCompose.Home
-import com.ferbajoo.composevsxml.ui.features.chatCompose.HomeScreen
+import com.ferbajoo.composevsxml.ui.features.chatCompose.compose.ChatsScreen
+import com.ferbajoo.composevsxml.ui.features.homeScreen.Home
+import com.ferbajoo.composevsxml.ui.features.greenCompose.GreenScreen
+import com.ferbajoo.composevsxml.ui.features.greenCompose.GreenScreenRoute
+import com.ferbajoo.composevsxml.ui.features.redCompose.RedScreen
+import com.ferbajoo.composevsxml.ui.features.redCompose.RedScreenRoute
 
 @Composable
-fun MainNavigation() {
-    val navController = rememberNavController()
-
-    NavHost(navController = navController, startDestination = Home) {
+fun MainNavigation(modifier: Modifier, controller: NavHostController) {
+    NavHost(
+        navController = controller,
+        startDestination = Home,
+        modifier = modifier
+    ) {
         composable<Home> {
-            HomeScreen()
+            ChatsScreen()
+        }
+        composable<RedScreenRoute> {
+            RedScreen()
+        }
+        composable<GreenScreenRoute> {
+            GreenScreen()
         }
     }
 

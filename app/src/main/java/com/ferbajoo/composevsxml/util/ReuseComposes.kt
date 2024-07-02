@@ -1,4 +1,4 @@
-package com.ferbajoo.composevsxml.ui.features.chatCompose.compose
+package com.ferbajoo.composevsxml.util
 
 import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.Row
