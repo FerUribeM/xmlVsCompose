@@ -28,7 +28,7 @@
             </intent-filter>
         </activity>
         <activity
-            android:name="com.ferbajoo.composevsxml.ui.features.XmlActivity"
+            android:name="com.ferbajoo.composevsxml.ui.features.chatXml.XmlActivity"
             android:theme="@style/Theme.XmlView" />
     </application>
 

@@ -6,18 +6,16 @@ import android.view.Menu
 import androidx.appcompat.app.AppCompatActivity
 import androidx.appcompat.widget.Toolbar
 import androidx.cardview.widget.CardView
-import androidx.compose.ui.platform.ComposeView
 import androidx.core.content.ContextCompat
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.ferbajoo.composevsxml.R
-import com.ferbajoo.composevsxml.ui.features.chatCompose.compose.FilterMenu
 
-class XmlActivity : AppCompatActivity(){
+class XmlActivity : AppCompatActivity() {
 
-    var all : CardView? = null
-    var unread : CardView? = null
-    var group : CardView? = null
+    var all: CardView? = null
+    var unread: CardView? = null
+    var group: CardView? = null
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -26,9 +24,9 @@ class XmlActivity : AppCompatActivity(){
         val toolbar = findViewById<Toolbar>(R.id.whatsapp_toolbar)
         setSupportActionBar(toolbar)
 
-        findViewById<ComposeView>(R.id.container_header).setContent {
-            FilterMenu()
-        }
+        //findViewById<ComposeView>(R.id.container_header).setContent {
+        //    FilterMenu()
+        //}
 
         all = findViewById(R.id.cv_all)
         unread = findViewById(R.id.cv_unread)
@@ -53,12 +51,16 @@ class XmlActivity : AppCompatActivity(){
         }
     }
 
-    private fun paintHeaders(selectedIndex: Int){
-        val activeColor = ColorStateList.valueOf(ContextCompat.getColor(this, R.color.tertiary_color))
+    private fun paintHeaders(selectedIndex: Int) {
+        val activeColor =
+            ColorStateList.valueOf(ContextCompat.getColor(this, R.color.tertiary_color))
         val disableColor = ColorStateList.valueOf(ContextCompat.getColor(this, R.color.gray))
-        all?.backgroundTintList = if (all?.tag.toString().toInt() == selectedIndex) activeColor else disableColor
-        unread?.backgroundTintList = if (unread?.tag.toString().toInt() == selectedIndex) activeColor else disableColor
-        group?.backgroundTintList = if (group?.tag.toString().toInt() == selectedIndex) activeColor else disableColor
+        all?.backgroundTintList =
+            if (all?.tag.toString().toInt() == selectedIndex) activeColor else disableColor
+        unread?.backgroundTintList =
+            if (unread?.tag.toString().toInt() == selectedIndex) activeColor else disableColor
+        group?.backgroundTintList =
+            if (group?.tag.toString().toInt() == selectedIndex) activeColor else disableColor
     }
 
     private fun fillRecyclerView() {
@@ -77,5 +79,4 @@ class XmlActivity : AppCompatActivity(){
         }
         return true
     }
-
 }

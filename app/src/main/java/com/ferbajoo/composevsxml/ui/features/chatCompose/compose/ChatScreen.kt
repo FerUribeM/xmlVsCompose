@@ -35,13 +35,8 @@ import androidx.compose.ui.tooling.preview.datasource.LoremIpsum
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import coil.compose.rememberAsyncImagePainter
-<<<<<<< Updated upstream:app/src/main/java/com/ferbajoo/composevsxml/ui/features/chatCompose/HomeScreen.kt
-import com.ferbajoo.composevsxml.ui.features.chatCompose.compose.CustomToolbar
-=======
-import com.ferbajoo.composevsxml.R
 import com.ferbajoo.composevsxml.ui.features.homeScreen.FloatingButton
 import com.ferbajoo.composevsxml.util.CustomToolbar
->>>>>>> Stashed changes:app/src/main/java/com/ferbajoo/composevsxml/ui/features/chatCompose/compose/ChatScreen.kt
 import com.ferbajoo.composevsxml.util.getEmojiRandom
 import kotlin.random.Random
 
@@ -74,26 +69,9 @@ fun ChatsScreen() {
     }
 }
 
-@Composable
-<<<<<<< Updated upstream:app/src/main/java/com/ferbajoo/composevsxml/ui/features/chatCompose/HomeScreen.kt
-fun CustomFloatingButton() {
-    Box(
-        modifier = Modifier
-            .size(50.dp)
-            .clip(RoundedCornerShape(15.dp))
-            .background(Color(0xFF25D366))
-            .clickable { },
-        contentAlignment = Alignment.Center,
-    ) {
-        Icon(Icons.Default.AddCircle, contentDescription = null, tint = Color.White)
-    }
-}
 
 @Composable
-fun HeaderMenu() {
-=======
 fun FilterMenu() {
->>>>>>> Stashed changes:app/src/main/java/com/ferbajoo/composevsxml/ui/features/chatCompose/compose/ChatScreen.kt
     var indexSelected by remember { mutableIntStateOf(0) }
     Row(modifier = Modifier.padding(horizontal = 10.dp)) {
         ItemHeaderButton("All", isSelected = indexSelected == 0) {
@@ -152,16 +130,12 @@ fun ChatItem(id: Int, onSelectedItem: () -> Unit) {
                 horizontalArrangement = Arrangement.SpaceBetween
             ) {
                 Text(text = "Nombre $id ${getEmojiRandom()}", fontWeight = FontWeight.Bold)
-<<<<<<< Updated upstream:app/src/main/java/com/ferbajoo/composevsxml/ui/features/chatCompose/HomeScreen.kt
-                Text(text = "25/Jun/2024")
-=======
                 Text(
                     text = "02:${if (id < 10) "0$id" else id} PM",
                     fontSize = 14.sp,
                     fontWeight = FontWeight.Normal,
                     color = Color.Gray
                 )
->>>>>>> Stashed changes:app/src/main/java/com/ferbajoo/composevsxml/ui/features/chatCompose/compose/ChatScreen.kt
             }
             Text(
                 text = loremIpsum.joinToString(),
